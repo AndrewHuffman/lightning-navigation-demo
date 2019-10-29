@@ -6,8 +6,12 @@
     </types>
     <types>
         <members>*</members>
+        <name>Flexipage</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>CustomObject</name>
-    </types>    
+    </types>
     <types>
         <members>Contact</members>
         <name>CustomObject</name>
