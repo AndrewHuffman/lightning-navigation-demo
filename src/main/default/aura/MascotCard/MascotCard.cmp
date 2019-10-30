@@ -1,0 +1,34 @@
+<aura:component controller="DemoController"
+                implements="lightning:isUrlAddressable,force:appHostable,flexipage:availableForAllPageTypes,lightning:actionOverride"
+                access="global">
+    <aura:attribute name="mascot" type="Mascot__c" />
+    <aura:attribute name="mascotUrl" type="String" access="private" />
+    <aura:attribute name="mascotEditUrl" type="String" access="private" />
+    <aura:attribute name="viewedDirectly" type="Boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler name="change" value="{!v.mascot}" action="{!c.onChange}" />
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.onPageRefChange}" />
+    <lightning:navigation aura:id="navService" />
+    <div class="main">
+        <div class="image">
+			<h2><lightning:formattedUrl value="{!v.mascotUrl}" label="{!v.mascot.Name}"/></h2>            
+        	<aura:unescapedHtml value="{!v.mascot.Picture__c}" />
+            <div><lightning:formattedUrl value="{!v.mascotEditUrl}" label="Edit Record"/></div>
+        </div>
+        <div class="bio"><aura:unescapedHtml value="{!v.mascot.Biography__c}" /></div>
+            <div class="actions">
+                <aura:if isTrue="{!!v.viewedDirectly}">
+                    <lightning:button label="Card" title="Card" onclick="{! c.viewCard }">
+                        <img class="action" src="{!$Resource.RightArrow}" />
+                        <h3>Card</h3>
+                    </lightning:button>
+                    <aura:set attribute="else">
+                        <lightning:button label="Home" title="Home" onclick="{! c.goHome }">
+                            <img class="action" src="{!$Resource.Astro}" />
+                            <h3>Home</h3>
+                        </lightning:button>                        
+                    </aura:set>
+                </aura:if>
+            </div>
+    </div>
+</aura:component>

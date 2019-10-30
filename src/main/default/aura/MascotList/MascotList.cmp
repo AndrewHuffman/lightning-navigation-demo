@@ -1,0 +1,39 @@
+<aura:component controller="DemoController"
+                implements="lightning:hasPageReference,force:appHostable,flexipage:availableForAllPageTypes,lightning:actionOverride,force:hasSObjectName" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="mascots" type="Mascot__c[]" />
+    <aura:attribute name="sortDirection" type="String" default="" />
+    <aura:attribute name="isRedirect" type="Boolean" default="false" access="private" />
+    <aura:attribute name="redirectIn" type="Integer" default="3" />
+    <aura:handler name="change" value="{!v.sortDirection}" action="{!c.doSort}" />
+    <aura:handler name="change" value="{!v.viewMode}" action="{!c.onViewModeChange}" />
+    <aura:handler name="change" value="{!v.pageReference}" action="{!c.onPageRefUpdate}" />
+    <lightning:navigation aura:id="navService" />
+    <lightning:card title="Mascots">
+        <div class="container">
+            <aura:if isTrue="{!v.isRedirect}">
+                <div class="redirecting">
+                    <h2>Redirecting you to Mascot Card View in {!v.redirectIn}</h2>
+                </div>
+                <aura:set attribute="else">
+                    <div class="actions">
+                        <h2>Actions</h2>
+                        <lightning:button label="New" onclick="{!c.gotoNew}" />
+                        <lightning:button label="List" onclick="{!c.gotoList}" />
+                        <label for="sort" class="slds-form-element__label">Sort</label>
+                        <select name="sort" onchange="{!c.onSortChange}" aura:id="sortSelect">
+                            <option value="">-</option>
+                            <option value="asc" selected="{!v.sortDirection=='asc'}">Ascending</option>
+                            <option value="dec" selected="{!v.sortDirection=='dec'}">Descending</option>
+                        </select>
+                    </div>
+                    <div class="mascots">
+                            <aura:iteration items="{!v.mascots}" var="mascot">
+                                <c:MascotCard mascot="{!mascot}" />
+                            </aura:iteration>
+                    </div>
+                </aura:set>
+            </aura:if>
+        </div>
+    </lightning:card>
+</aura:component>

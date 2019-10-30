@@ -1,0 +1,39 @@
+.THIS {
+    margin-bottom: 40px;
+    padding: 20px 10px;
+}
+.THIS .actions h2 {
+    font-size: 200%;
+    color: #aaa;
+    border-bottom: 1px solid #aaa;
+    margin-bottom: 30px;
+    text-align: center;
+    margin: 10px 15px;
+}
+.THIS .container {
+    display: flex;
+    flex-direction: row;
+}
+.THIS .mascots {
+    display: flex;
+    flex-flow: row wrap;
+}
+.THIS .actions {
+    margin-left: 20px; /* hack */
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.THIS .actions button {
+    margin: 5px 0px;
+}
+.THIS .mascot-list {
+    display: flex;
+    flex-direction: column;
+}
+.THIS .redirecting {
+    width: 500px;
+    font-size: 200%;
+    margin-left: auto;
+    margin-right: auto;
+}

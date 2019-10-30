@@ -1,0 +1,75 @@
+.THIS button {
+    height: 300px;
+    width: 350px;
+    box-shadow: 1px 1px 1px 1px #ccc;
+    border: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.THIS button:focus {
+    outline:0;
+}
+.THIS button:active {
+ 	box-shadow: 0px 0px 0px 0px;
+ 	border: 1px solid #ccc;
+}
+
+.THIS button img {
+    align: middle;
+    max-height: 200px;
+    max-width: 200px;
+}
+.THIS button div {
+    font-size: 2em;
+    margin: 0px 20px;
+    padding: 10px 0px;
+    border-top: 1px solid #ccc;
+    width: 100%;
+    align: bottom;
+}
+.THIS dl {
+    width: 100%;
+}
+.THIS dt:first-child {
+    margin-top: 10px;
+}
+.THIS dt {
+    font-size: 150%;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #ddd;
+}
+.THIS dd {
+    margin: 10px 0px;
+    font-size: 110%;
+    text-wrap: wrap;
+}
+.THIS pre {
+    font-family: 'Monaco', 'Consolas', Courier, monospace;
+    padding: 0px;
+    margin: 0px;
+}
+@keyframes highlight {
+    0% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: Yellow;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+.THIS .highlight {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    animation-name: highlight;
+    animation-duration: 1000ms;
+}
+.THIS .uiInputCheckbox {
+    display: inline-block;
+    margin: 0px 10px;
+}
