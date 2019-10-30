@@ -1,21 +1,17 @@
 <aura:component controller="DemoController"
-                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global" >
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global">
     <aura:handler name="init" value="{!this}" action="{!c.init}" />
     <aura:attribute name="pageReferences" type="Object" />
     <aura:attribute name="contactFilters" type="String[]" />
-    <aura:attribute name="contactsFilter" type="Object" default="All"/>
+    <aura:attribute name="contactsFilter" type="Object" default="All" />
     <aura:attribute name="mascots" type="String[]" />
     <aura:attribute name="users" type="String[]" />
     <aura:attribute name="currentUser" type="String" />
     <div>
         <div>
-            <c:LauncherButton label="Contacts"
-                              imgSrc="{!$Resource.Contacts}"
-                              pageRef="{!v.pageReferences.contacts}"
-                              aura:id="contactBtn">
-                <lightning:select name="contactsFilter"
-                                  label="Filter"
-                                  onchange="{!c.onFilterChange}">
+            <c:LauncherButton label="Contacts" imgSrc="{!$Resource.Contacts}" pageRef="{!v.pageReferences.contacts}"
+                aura:id="contactBtn">
+                <lightning:select name="contactsFilter" label="Filter" onchange="{!c.onFilterChange}">
                     <aura:iteration items="{!v.contactFilters}" var="filter">
                         <option value="{!filter.Id}">
                             {!filter.Name}
@@ -25,15 +21,10 @@
             </c:LauncherButton>
         </div>
         <div>
-            <c:LauncherButton
-                          label="Mascots"
-                          imgSrc="{!$Resource.Astro}"
-                          pageRef="{!v.pageReferences.mascots}"
-                          aura:id="mascotBtn">
-                <lightning:select name="mascotToView"
-                              label="Mascot to View"
-                              onchange="{!c.onMascotChange}">
-					<option value="All">All</option>
+            <c:LauncherButton label="Mascots" imgSrc="{!$Resource.Astro}" pageRef="{!v.pageReferences.mascots}"
+                aura:id="mascotBtn">
+                <lightning:select name="mascotToView" label="Mascot to View" onchange="{!c.onMascotChange}">
+                    <option value="All">All</option>
                     <aura:iteration items="{!v.mascots}" var="mascot">
                         <option value="{!mascot.Id}">
                             {!mascot.Name}
@@ -43,21 +34,18 @@
             </c:LauncherButton>
         </div>
         <div>
-            <c:LauncherButton
-                          label="Profile"
-                          imgSrc="{!$Resource.Profile}"
-                          pageRef="{!v.pageReferences.profile}"
-                          aura:id="profileBtn">
-                <lightning:select name="userToView"
-                              label="User Profile to View"
-                              onchange="{!c.onProfileChange}">
+            <c:LauncherButton label="Profile" imgSrc="{!$Resource.Profile}" pageRef="{!v.pageReferences.profile}"
+                aura:id="profileBtn">
+                <lightning:select name="userToView" label="User Profile to View" onchange="{!c.onProfileChange}">
                     <aura:iteration items="{!v.users}" var="user">
                         <option value="{!user.Id}" selected="{!v.currentUser.Id == user.Id}">
-                            {!user.Name} <aura:if isTrue="{!v.currentUser.Id == user.Id}"> (Current User)</aura:if>
+                            {!user.Name}
+                            <aura:if isTrue="{!v.currentUser.Id == user.Id}">
+                                (Current User)</aura:if>
                         </option>
                     </aura:iteration>
                 </lightning:select>
             </c:LauncherButton>
         </div>
-   	</div>
+    </div>
 </aura:component>
