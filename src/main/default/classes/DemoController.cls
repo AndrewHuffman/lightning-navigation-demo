@@ -13,6 +13,6 @@ public class DemoController {
     }
     @AuraEnabled
     public static List<ListView> getContactLists() {
-        return [SELECT Name,SobjectType FROM ListView WHERE SobjectType = 'Contact' ORDER BY Name ASC NULLS FIRST];
+        return [SELECT Name,SobjectType,DeveloperName FROM ListView WHERE SobjectType = 'Contact' ORDER BY Name ASC NULLS FIRST];
     }
 }
