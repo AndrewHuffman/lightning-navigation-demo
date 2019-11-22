@@ -21,9 +21,13 @@
         <ui:inputCheckbox aura:id="isAppReference" label="Show App Reference?" value="{!v.showAppRef}" />
         <dl>
             <aura:if isTrue="{!v.showUrl}">
-                <dt>Url</dt>
+                <dt>lightning:formattedUrl</dt>
                 <dd aura:id="pageRefUrl">
                     <lightning:formattedUrl value="{!v.pageRefUrl}" />
+                </dd>
+                <dt>Raw Anchor</dt>
+                <dd>
+                    <a href="{!v.pageRefUrl}">{!v.pageRefUrl}</a>
                 </dd>
             </aura:if>
             <aura:if isTrue="{!v.showPageRef}">
